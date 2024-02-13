@@ -297,7 +297,7 @@ targets.bind( 'mouseenter', function() {
 function weather() {
     'use strict';
     
-    var location = document.getElementById("location"), apio = "7e069e35c71343b473906398a88ddd5", url = "https://api.darksky.net/forecast/", aqio="8250be80-896a-4448-ace8-9edbcf782ea8";//airvisual key expires on 12 Feb 2024
+    var location = document.getElementById("location"), apio = "7e069e35c71343b473906398a88ddd5", url = "https://api.darksky.net/forecast/", aqio="29a18e84-f6c5-4d5a-8b59-3e5ed2c7f873";//airvisual key expires on 13 Feb 2025, old one: 8250be80-896a-4448-ace8-9edbcf782ea8
   
     //navigator.geolocation.getCurrentPosition(success, error );
     success(null, 47, 24);

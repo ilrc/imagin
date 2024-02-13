@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		
+		<title>Clean Air Cluj</title>
+
+		<!-- Loading third party fonts 
+		<link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700|" rel="stylesheet" type="text/css">-->
+		<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="style.css">
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="apple-touch-icon" sizes="57x57" href="images/icons/fav/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/icons/fav/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/icons/fav/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/icons/fav/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/icons/fav/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/icons/fav/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/icons/fav/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/icons/fav/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/icons/fav/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/icons/fav/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/icons/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/icons/fav/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/icons/fav/favicon-16x16.png">
+        <link rel="manifest" href="manifest.json">
+        <meta name="msapplication-TileColor" content="#009BD8">
+        <meta name="msapplication-TileImage" content="images/icons/fav/ms-icon-144x144.png">
+        <meta name="theme-color" content="#009BD8">
+		
+		<!--[if lt IE 9]>
+		<script src="js/ie-support/html5.js"></script>
+		<script src="js/ie-support/respond.js"></script>
+		<![endif]-->
+        
+        <!-- firebase formessaging:
+        <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+        <script>
+          var config = {
+            apiKey: "AIzaSyCP0QmoFPVsLrOi7uW_MUN3fWxTojEfBu4",
+            authDomain: "cleanair-193111.firebaseapp.com",
+            databaseURL: "https://cleanair-193111.firebaseio.com",
+            projectId: "cleanair-193111",
+            storageBucket: "cleanair-193111.appspot.com",
+            messagingSenderId: "374064705415"
+          };
+          firebase.initializeApp(config);
+          //Web Push certificate public key: BIQ0qopxSdZ3ljVm60xHa4HrDy7698wYv1IZxCyjucVVRotIIFbmvQ4-bTrjtsE8tVvkm-x8fSGgoaQBI1Y11KE 
+        </script>
+        -->
+	</head>
+
+
+	<body>
+		
+		<div class="site-content">
+			<div class="site-header">
+				<div class="container">
+					<a href="index.html" class="branding">
+						<img src="images/logo.png" alt="" class="logo">
+						<div class="logo-type">
+							<h1 class="site-title">Clean Air Cluj</h1>
+							<small class="site-description">Love is in the Air!</small>
+						</div>
+					</a>
+
+					<!-- Default snippet for navigation -->
+					<div class="main-navigation">
+						<button type="button" class="menu-toggle"><i class="fa fa-bars"></i></button>
+						<ul class="menu">
+							<li class="menu-item current-menu-item"><a href="index.html">Home</a></li>
+							<!--<li class="menu-item"><a href="news.html">Good2Know</a></li>-->
+							<li class="menu-item"><a href="#" onclick="pulse('pm10');pulse('pm25');">1st Sensors</a></li>
+							<li class="menu-item"><a href="imp/index.html">Presentation</a></li>
+							<li class="menu-item"><a href="#contact">Contact</a></li>
+						</ul> <!-- .menu -->
+					</div> <!-- .main-navigation -->
+
+					<div class="mobile-navigation"></div>
+
+				</div>
+			</div> <!-- .site-header -->
+
+			<!--<div class="hero" data-bg-image="images/banner.png">
+				<div class="container">
+					<form action="#" class="find-location">
+						<input type="text" placeholder="Find your location...">
+						<input type="submit" value="Find">
+					</form>
+
+				</div>
+			</div>-->
+			
+            <div class="forecast-table">
+				<div class="container">
+					<div class="forecast-container">
+						<div class="today forecast">
+							<div class="forecast-header">
+								<div id="today"></div>
+								<!--<div class="date">6 Oct</div>-->
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="location"><span id="city"></span></div>
+                                <span id="summary"></span>
+						        <span class="hid mobileSee"><br></span>
+                                <img id="exhaust" src="images/exhaust.svg" width=30 rel="tooltip"><span id="pollutant" rel="tooltip"></span>
+                                <img id="molecule" src="" width=30 rel="tooltip"><span id="vocaqi0" rel="tooltip"></span><img id="vocaqicon0" src="" width=15 rel="tooltip"><span id="vocaqi1" rel="tooltip"></span><img id="vocaqicon1" src="" width=15 rel="tooltip"><span id="vocaqi2" rel="tooltip"></span><img id="vocaqicon2" src="" width=15 rel="tooltip">
+								<div class="degree">
+									<span id="temp" title="Now" rel="tooltip"></span><!--<div class="num">23<sup>o</sup>C</div>-->
+                                    <div class="forecast-icon">
+										<img id="icon" src="" alt="" width=50>
+									</div>
+                                    <span id="aqi" rel="tooltip"></span>
+                                    <div class="forecast-icon">
+                                        <img id="aqicon" src="" alt="" width=50 rel="tooltip">
+                                    </div>
+								</div>
+                                <span id="tempMin" title="Min today" rel="tooltip"></span><span id="tempMax" title="Max today" style="color:white;font-weight: 900" rel="tooltip"></span>
+                                
+                                <img id="sensor1" src="" width=20 rel="tooltip"><span id="sensor1pm25" title="PM₂₅ (μg/m³)" rel="tooltip"></span>
+                                <span id="sensor1pm10" title="PM₁₀ (μg/m³)" rel="tooltip"></span>
+                                <img id="sensor2" src="" width=20 rel="tooltip"><span id="sensor2pm25" title="PM₂₅ (μg/m³)" rel="tooltip"></span>
+                                <span id="sensor2pm10" title="PM₁₀ (μg/m³)" rel="tooltip"></span>
+                                
+                                <button disabled id="getAlerts" class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored"><!--<img src="images/bell.svg" width=15 title="Get AQI Alerts!" rel="tooltip">--><i class="fa fa-bell"></i> Get Alerts !</button>
+                                
+                                <iframe name="hidden_iframe1" id="hidden_iframe1" style="display:none" onload=""></iframe>
+                                <form action="https://docs.google.com/forms/d/e/1FAIpQLScTGwUFFJ1QeljzWRIytdHF_SxFdpcYJrQ0HvlcxUYOGsqi1w/formResponse" method="POST" id="mG61Hd" target="hidden_iframe1" onsubmit="">
+                                    <textarea class="js-subscription-json hid" type="text" name="entry.1984977102"></textarea>
+                                    <button type="submit" id="sendToken" class="mdl-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored" style="position:relative;    bottom:2.6em;left:3.7em;visibility:hidden;" onclick="$('#sendToken').css('visibility', 'hidden');$('#getAlerts').css('visibility','visible');"><i class="fa fa-check"></i> Confirm</button>
+                                </form>
+                                
+                                <div class="weatherIcons">
+                                    <img src="images/feelslike.svg" width=15 title="Feels like" rel="tooltip"><span id="apparentTemperature"></span>
+                                    <img src="images/icon-umberella.png" width=15 alt="" style="margin-right: 2px" title="Percipitation" rel="tooltip"><span id="precipProbability"></span>
+                                    <img src="images/dewpoint.svg" width=15 alt="" style="margin-right: 1px" title="Dew point" rel="tooltip"><span style="margin-right: 1px" id="dewPoint"></span>
+                                    <img src="images/waterdrop.svg" width=15 alt="" style="margin-right: 0px" title="Humidity" rel="tooltip"><span id="humidity"></span>
+			                        <span class="hid mobileSee"><br></span>
+                                    <img src="images/cloudcover.svg" width=25 alt="" style="margin-right: 1px" title="Cloud cover" rel="tooltip"><span id="cloudCover"></span>
+                                    <img src="images/visibility.svg" width=20 alt="" style="margin-right: 1px" title="Visibility" rel="tooltip"><span id="visibility"></span>
+                                    <img src="images/sunblock.svg" width=15 alt="" style="margin-right: 1px" title="UV index" rel="tooltip"><span id="uvIndex"></span>
+                                    <br>
+                                    <img src="images/windy.svg" width=15 alt="" style="margin-right: 1px" title="Wind speed" rel="tooltip"><span id="windSpeed"></span>
+                                    <img src="images/icon-wind.png" width=15 alt="" style="margin-right: 1px" title="Wind gust" rel="tooltip"><span id="windGust"></span>
+                                    <img src="images/icon-compass.png" width=15 alt="" style="margin-right: 2px" title="Wind bearing" rel="tooltip"><span id="windBearing"></span>
+                                    <span class="hid mobileSee"><br></span>
+                                    <img src="images/pressure.svg" width=15 alt="" style="margin-right: 1px" title="Air pressure" rel="tooltip"><span id="pressure"></span>
+                                    <img src="images/o3-cloud.svg" width=25 style="margin-right: 1px" title="Atmospheric Ozone" rel="tooltip"><span id="ozone"></span>
+                                </div>    
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day2"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day2icon" src="images/icons/icon-3.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day2tempHigh"></span></div>
+								<small><span id="day2tempLow"></span></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day3"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day3icon" src="images/icons/icon-5.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day3tempHigh"></span></div>
+								<small><span id="day3tempLow"></span></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day4"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day4icon" src="images/icons/icon-7.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day4tempHigh"></span></div>
+								<small><span id="day4tempLow"></span></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day5"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day5icon" src="images/icons/icon-12.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day5tempHigh"></span></div>
+								<small><span id="day5tempLow"></span></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day6"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day6icon" src="images/icons/icon-13.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day6tempHigh"></span></div>
+								<small><span id="day6tempLow"></span></small>
+							</div>
+						</div>
+						<div class="forecast">
+							<div class="forecast-header">
+								<div class="day"><span id="day7"></span></div>
+							</div> <!-- .forecast-header -->
+							<div class="forecast-content">
+								<div class="forecast-icon">
+									<img id="day7icon" src="images/icons/icon-14.svg" rel="tooltip" width=48>
+								</div>
+								<div class="degree"><span id="day7tempHigh"></span></div>
+								<small><span id="day7tempLow"></span></small>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+            <main class="main-content">
+				<div class="fullwidth-block">
+					<div class="container">
+						<h2 class="section-title">Maps and Videos</h2>
+						<div class="row">
+                            <!--
+							<div class="col-sm-6">
+								<div class="live-camera">
+                                    <span id="countryMap"></span>
+                                    <h3 class="location"><span id="country"></span></h3><button type="button" id="showCountryMap" onclick="showCountryMap()"> Show Map</button>
+								</div>
+							</div>
+                            -->
+							<div class="col-sm-6">
+								<div class="live-camera">
+                                    <span id="worldMap"></span>
+                                    <h3 class="location">World Air Quality</h3><button type="button" class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored" id="showWorldMap" onclick="showWorldMap()"> Show Map</button>
+                                </div>
+							</div>
+                            <div class="col-sm-6">
+								<div class="live-camera">
+                                    <span id="videoEN"></span>
+                                    <h3 class="location">Clean Air Campaign Video</h3><button type="button" class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored" id="showVideoEN" onclick="showVideoEN()"> watch</button><button type="button" class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored" id="showVideoSP" onclick="showVideoSP()"> ver</button><button type="button" class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect mdl-colored" id="showVideoFR" onclick="showVideoFR()"> regarder</button>
+                                </div>
+							</div>
+                            <!--
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="images/live-camera-3.jpg" alt=""></figure>
+									<h3 class="location">Chicago</h3>
+									<small class="date">8 oct, 8:00AM</small>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6">
+								<div class="live-camera">
+									<figure class="live-camera-cover"><img src="images/live-camera-4.jpg" alt=""></figure>
+									<h3 class="location">London</h3>
+									<small class="date">8 oct, 8:00AM</small>
+								</div>
+							</div>
+                            -->
+						</div>
+					</div>
+				</div>
+
+				<div id="weatherAlerts" class="fullwidth-block" data-bg-color="#262936">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date" id="alert0date"></div>
+									<h3 id="alert0title"></h3>
+									<p id="alert0"></p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date" id="alert1date"></div>
+									<h3 id="alert1title"></h3>
+									<p id="alert1"></p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="news">
+									<div class="date" id="alert2date"></div>
+									<h3 id="alert2title"></h3>
+									<p id="alert2"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<h2 class="section-title">Links</h2>
+								<ul class="arrow-feature">
+								    <h3>AQI</h3>
+                                    <li><a href="http://calitateaer.ro/public/home-page/?__locale=en" target="_blank">Air Quality Map (Romania)</a></li>
+                                    <li><a href="http://airindex.eea.europa.eu/" target="_blank">AQI (Europe)</a></li>
+                                    <li><a href="https://en.wikipedia.org/wiki/Air_quality_index" target="_blank">AQI definitions (World)</a></li>
+                                    <li><a href="https://www.epa.gov/air-trends" target="_blank">Air Quality Trends (USA)</a></li>
+                                    <p></p>
+								    <h3>Sensors</h3>
+									<li><a href="https://cfpub.epa.gov/si/si_public_record_report.cfm?Lab=NERL&dirEntryId=277996&simpleSearch=1&searchAll=air+sensor+guidebook" target="_blank">Air sensor guidebook</a></li>
+                                    <li><a href="https://www.epa.gov/air-sensor-toolbox/what-do-my-sensor-readings-mean-sensor-scale-pilot-project" target="_blank">Sensors readings</a></li>
+                                    <li><a href="https://www.instructables.com/id/Air-Pollution-Detector/" target="_blank">DIY Sensor Box</a></li>
+								</ul>
+							</div>
+                            <span class="hid mobileSee"><br><br></span>
+							<div class="col-md-4">
+								<h2 class="section-title">Local Joke</h2>
+								<ul class="arrow-list">
+									<li><a href="#"><span id="location"></span></a></li>
+                                    <li><a href="#"><span id="summaryh"></span></a></li>
+									<li><a href="#"><span id="summaryd"></span></a></li>
+									
+									<!-- <li><a href="#"></a></li>
+									<li><a href="#"></a></li>
+									<li><a href="#"></a></li>
+									<li><a href="#"></a></li> -->
+								</ul>
+							</div>
+                            <span class="hid mobileSee"><br><br></span>
+							<div class="col-md-4">
+								<h2 class="section-title">Photos</h2>
+								<div class="photo-grid">
+									<a href="images/1.jpg"><img src="images/1.jpg" alt="#"></a>
+									<a href="images/2.jpg"><img src="images/2.jpg" alt="#"></a>
+									<a href="images/3.jpg"><img src="images/3.jpg" alt="#"></a>
+									<a href="images/4.jpg"><img src="images/4.jpg" alt="#"></a>
+									<a href="images/5.jpg"><img src="images/5.jpg" alt="#"></a>
+									<a href="images/6.jpg"><img src="images/6.jpg" alt="#"></a>
+									<a href="images/7.jpg"><img src="images/7.jpg" alt="#"></a>
+									<a href="images/8.jpg"><img src="images/8.jpg" alt="#"></a>
+									<a href="images/9.jpg"><img src="images/9.jpg" alt="#"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</main> <!-- .main-content -->
+
+			<footer class="site-footer" id="contact">
+				<div class="container">
+                    <script type="text/javascript">var submitted=false;</script>
+		            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" onload="if(submitted){$('#fthx').html('<b><i>   Thank you, '+$('#fname').val()+' !</i></b>' ).removeClass('hid');$('#ftel').val('');$('#ftext').val('');$('#femail').val('');$('#fname').val('');}"></iframe>
+		            <form action="https://docs.google.com/forms/d/e/1FAIpQLScTGwUFFJ1QeljzWRIytdHF_SxFdpcYJrQ0HvlcxUYOGsqi1w/formResponse" method="POST" id="mG61Hd" target="hidden_iframe" onsubmit="submitted=true;">
+                        <input id="fname" required type="text" placeholder="full name" name="entry.2005620554">
+                        <span class="hid mobileSee"><br><br></span>
+                        <input id="femail" required type="email" placeholder="email" name="entry.1045781291">
+                        <span class="hid mobileSee"><br><br></span>
+                        <input id="ftel" type="text" placeholder="tel" name="entry.1166974658">
+                        <span class="hid mobileSee"><br><br></span>
+                        <input id="ftext" type="text" placeholder="your question/feedback/suggestion" width="30" name="entry.839337160">
+                        <span class="hid mobileSee"><br><br></span>
+                        <textarea id="pushToken" class="js-subscription-json hid" type="text" name="entry.1984977102"></textarea>
+                        <button type="submit" onclick="submitted=true"><i class="fa fa-play"></i></button>
+                        <span id="fthx" class="hid"></span>
+                    </form>
+                    
+					<!-- <div class="row">
+						<div class="col-md-8">
+							<form action="#" class="subscribe-form">
+								<input type="text" placeholder="Enter your email to subscribe...">
+								<input type="submit" value="Subscribe">
+							</form>
+						</div>
+						<div class="col-md-3 col-md-offset-1">
+							<div class="social-links">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-google-plus"></i></a>
+								<a href="#"><i class="fa fa-pinterest"></i></a>
+							</div>
+						</div>
+					</div> -->
+                    <br><br><br><br>
+                    <!--
+                        <section class="subscription-details js-subscription-details is-invisible">
+                          <pre style="font-size:2px;color:black"><code class="js-subscription-json"></code></pre>
+                        </section>
+                    -->
+					<p class="colophon">Copyright 2019 Clean Air Cluj</p>
+				</div>
+			</footer> <!-- .site-footer -->
+		</div>
+		
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/plugins.js"></script>
+		<script src="js/app.js"></script>
+		
+	</body>
+
+</html>

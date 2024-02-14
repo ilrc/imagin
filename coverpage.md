@@ -6,3 +6,6 @@
 
 [ANC](https://imagin.js.org/a/)
 [Imagin](https://imagin.js.org/s/)
+[Air Quality](https://imagin.js.org/c/)
+[Haya](https://imagin.js.org/h/)
+[Dhyan](https://imagin.js.org/d/)

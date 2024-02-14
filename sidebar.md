@@ -1,5 +1,6 @@
 * [Imagin](https://imagin.js.org/s/)
 * [All Nations Cafe](https://imagin.js.org/a/)
+* [Air Quality Cluj](https://imagin.js.org/c/)
 * [People](https://imagin.js.org/s/)
   * [Haya](https://imagin.js.org/h/)
   * [Dhyan](https://imagin.js.org/d/)

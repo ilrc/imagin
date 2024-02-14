@@ -1,4 +1,4 @@
-![logo](img/imagine.svg ':size=25%')
+![logo](imagin.svg ':size=25%')
 
 > MVVM for the web reimagined
 
@@ -6,5 +6,5 @@
 - Use Composition alongside MVVM
 - Compatible with 3rd party Web Components
 
-[GitHub](https://github.com/karimayachi/imagine/)
-[Documentation](/README)
+[ANC](https://imagin.js.org/a/)
+[Imagin](https://imagin.js.org/s/)

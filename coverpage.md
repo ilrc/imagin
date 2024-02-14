@@ -1,6 +1,8 @@
-* [Imagin](https://imagin.js.org/s/)
-* [All Nations Cafe](https://imagin.js.org/a/)
-* [People](https://imagin.js.org/s/)
-  * [Haya](https://imagin.js.org/h/)
-  * [Dhyan](https://imagin.js.org/d/)
- 
+![logo](imagin.svg ':size=25%')
+
+- 100% declarative
+- Use Composition alongside MVVM
+- Compatible with 3rd party
+
+[ANC](https://imagin.js.org/a/)
+[Imagin](https://imagin.js.org/s/)

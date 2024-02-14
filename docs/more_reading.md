@@ -1,3 +1,0 @@
-# More reading
-
-## Case sensitivity

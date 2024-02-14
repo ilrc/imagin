@@ -8,15 +8,15 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
-   sodipodi:docname="imagine.svg"
+   sodipodi:docname="imagin.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#ffffff"
-     bordercolor="#999999"
+     pagecolor="#00e0f0"
+     bordercolor="#000"
      borderopacity="1"
      inkscape:pageshadow="0"
      inkscape:pageopacity="0"
@@ -48,7 +48,6 @@
        id="g842"
        transform="matrix(0.07551193,0,0,0.07551193,110.61714,136.78288)"
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3.97288;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:export-filename="C:\Users\KA\Documents\imagine.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150">
       <path
@@ -58,7 +57,7 @@
          sodipodi:nodetypes="ccccccccccccccc" />
     </g>
     <g
-       aria-label="Imagine"
+       aria-label="Imagin"
        id="text13107"
        style="font-size:50.8001px;line-height:1.25;font-family:'Bauhaus 93';-inkscape-font-specification:'Bauhaus 93, Normal';letter-spacing:-2.64583px;fill:none;stroke:#000000;stroke-width:0.264578">
       <path

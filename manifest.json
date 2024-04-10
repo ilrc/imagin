@@ -3,6 +3,12 @@
  "name": "Imagin the Future",
  "icons": [
   {
+   "src": "/favicon/maskable-icon.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  },     
+  {
    "src": "/favicon/android-icon-36x36.png",
    "sizes": "36x36",
    "type": "image\/png",

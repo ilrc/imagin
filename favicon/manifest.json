@@ -1,5 +1,6 @@
 {
- "name": "iMagin",
+ "short_name": "Imagin",
+ "name": "Imagin the Future of Youth",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
@@ -39,8 +40,8 @@
   }
  ],
  "start_url": "/",
- "background_color": "#009BD8",
+ "background_color": "#000",
  "display": "standalone",
  "scope": "/",
- "theme_color": "#06222C"
+ "theme_color": "#fa1"
 }

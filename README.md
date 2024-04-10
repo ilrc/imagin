@@ -1,10 +1,12 @@
 # Imagin!
 
-## Composition vs. MVVM
-Recent years have seen huge popularity in Composition frameworks. At the same time MVVM frameworks have been declining.
+## The world
+Close your eyes and envision the future world around you. How does the earth feel? How does the air smell? How does the ocean sound? How do plants taste? How do animals look?
 
 ## Our goal
-Our goal is to create an unoppinionated library that is 100% declarative and helps with reusability as well as separation of concerns. It is compatible with all third party Web Components.
+Build a retreat center for young people in Apuseni, Carpathian mountains:
+- a safe place away from educational-economic-cultural system and its pressure
+- a sapce to explore true purpose
 
 ## In practice
-We think that a full blown application, loaded with business logic, needs both Composition and a horizontal architecture as found in (for instance) MVVM.
+Invite people into the forest, clean it up, then light a fire, make a circle of youth and elders to inspire, role model and guide through the journey of life.

@@ -342,19 +342,19 @@
                 </p>
               </div>
               <div class="col clockinner1 clockinner">
-                <h1 class="days">21</h1>
+                <h1 class="days" id="days">21</h1>
                 <span class="smalltext">Days</span>
               </div>
               <div class="col clockinner clockinner1">
-                <h1 class="hours">7</h1>
+                <h1 id="hours">7</h1>
                 <span class="smalltext">Hours</span>
               </div>
               <div class="col clockinner clockinner1">
-                <h1 class="minutes">3</h1>
+                <h1 id="minutes">3</h1>
                 <span class="smalltext">Mins</span>
               </div>
               <div class="col clockinner clockinner1">
-                <h1 class="seconds">00</h1>
+                <h1 id="seconds">00</h1>
                 <span class="smalltext">Secs</span>
               </div>
             </div>
@@ -799,5 +799,42 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
     <script src="js/gmaps.min.js"></script>-->
     <script src="js/theme.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            var seconds = 1715270400 - Math.floor((Date.now() / 1000));
+            var days = Math.floor(seconds / 86400);
+            var hours = Math.floor(seconds % 86400 / 3600); 
+            var minutes = Math.floor(seconds % 3600 / 60);
+            seconds = Math.floor(seconds % 60);
+            
+            function calculate() {
+                setTimeout(calculate, 1000);
+                $('#days').html(days);
+                $('#hours').html(hours);
+                $('#minutes').html(minutes);
+                $('#seconds').html(seconds);
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        hours--;
+                        minutes = 59;
+                        if (hours < 0) {
+                            days--;
+                            hours = 23;
+                            if (days < 0) {
+                                days = 0;
+                                hours = 0;
+                                minutes = 0;
+                                seconds = 0;
+                            }
+                        }
+                    }
+                }
+            }
+            calculate();
+        });
+    </script>
   </body>
 </html>
